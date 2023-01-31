@@ -1,0 +1,17 @@
+service: my-node-app
+
+# The version of Node.js to use
+build:
+  env:
+    - NODE_ENV=production
+  cmd: npm ci && npm run build
+
+# The command to start the web service
+web:
+  command: npm start
+  port: 3000
+
+# The environment variables to set
+env:
+  MY_APP_SECRET: ${SECRET_KEY}
+  MONGODB_URI: ${MONGODB}
